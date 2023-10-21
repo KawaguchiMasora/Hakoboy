@@ -1,0 +1,62 @@
+{
+    "name": "PadAction",
+    "maps": [
+        {
+            "name": "Action",
+            "id": "98be1a7d-6bf1-4d50-b691-70d2fc89f8d6",
+            "actions": [
+                {
+                    "name": "Space",
+                    "type": "Button",
+                    "id": "0abb4409-bacb-46c6-a4e1-307d3c1c128d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "61faf708-5f15-4dd7-b73e-ef72586fbada",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Space",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "PadAction",
+            "id": "931e6607-3d8b-4d80-bcd5-5a6ca4863543",
+            "actions": [
+                {
+                    "name": "A",
+                    "type": "Button",
+                    "id": "d18590ba-8225-4e1c-9304-dc4e4838f727",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "703ae9f8-caf7-46a9-9f71-9f80bd43aefd",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "A",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
