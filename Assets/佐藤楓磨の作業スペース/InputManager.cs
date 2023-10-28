@@ -19,9 +19,18 @@ public class InputManager : MonoBehaviour
         }
     }
     private PlayerInput input;
-    private InputAction testAction;
+    private InputAction bButtonAction;
+    private InputAction yButtonAction;
+    private InputAction downArrowAction;
+    private InputAction dropBoxAction;
+    private InputAction createBoxRAction;
+    private InputAction createBoxLAction;
+    private InputAction createBoxUpAction;
+    private InputAction createBoxDownAction;
+    private InputAction retryAction;
+    private InputAction deleteAction;
     private bool isConnectionGamePad = true;
-    void Start()
+    void Awake()
     {
         input = GetComponent<PlayerInput>();
         var controllerNames = Input.GetJoystickNames(); //接続されている全てのゲームパッドの名前を取得
@@ -29,29 +38,101 @@ public class InputManager : MonoBehaviour
         if (isConnectionGamePad)
         {
             #region 接続された場合のアクション
-            testAction = input.actions["A"];
+            bButtonAction = input.actions["B"];
+            yButtonAction = input.actions["Y"];
+            downArrowAction = input.actions["DownPadArrowR"];
+            dropBoxAction = input.actions["PadDropBox"];
+            createBoxRAction = input.actions["PadCreateBoxR"];
+            createBoxLAction = input.actions["PadCreateBoxL"];
+            createBoxUpAction = input.actions["PadCreateBoxUp"];
+            createBoxDownAction = input.actions["PadCreateBoxDown"];
+            retryAction = input.actions["PadRetry"];
+            deleteAction = input.actions["PadDeleteBox"];
             #endregion
         }
         else
         {
             #region 接続されていない場合のアクション
-            testAction = input.actions["Space"];
+            bButtonAction = input.actions["Space"];
+            yButtonAction = input.actions["Shift"];
+            downArrowAction = input.actions["DownArrow"];
+            dropBoxAction = input.actions["DropBox"];
+            createBoxRAction = input.actions["CreateBoxR"];
+            createBoxLAction = input.actions["CreateBoxL"];
+            createBoxUpAction = input.actions["CreateBoxUp"];
+            createBoxDownAction = input.actions["CreateBoxDown"];
+            retryAction = input.actions["Retry"];
+            deleteAction = input.actions["DeleteBox"];
             #endregion
         }
-        SetAction(() => PrintTest());
+        SetButtonAction(() => print("test"), KeyType.B);
     }
 
     void Update()
     {
-        
+
     }
-    private void PrintTest()
+    public void SetButtonAction(System.Action action, KeyType type)
     {
-        print("Test");
+        switch (type)
+        {
+            case KeyType.B:
+                bButtonAction.performed += _ => action();
+                break;
+            case KeyType.Y:
+                yButtonAction.performed += _ => action();
+                break;
+            case KeyType.DownArrow:
+                downArrowAction.performed += _ => action();
+                break;
+            case KeyType.DropBox:
+                dropBoxAction.performed += _ => action();
+                break;
+            case KeyType.CreateBoxR:
+                createBoxRAction.performed += _ => action();
+                break;
+            case KeyType.CreateBoxL:
+                createBoxLAction.performed += _ => action();
+                break;
+            case KeyType.CreateBoxUp:
+                createBoxUpAction.performed += _ => action();
+                break;
+            case KeyType.CreateBoxDown:
+                createBoxDownAction.performed += _ => action();
+                break;
+            case KeyType.Retry:
+                retryAction.performed += _ => action();
+                break;
+            case KeyType.Delete:
+                deleteAction.performed += _ => action();
+                break;
+
+        }
     }
-    public void SetAction(System.Action action)
+    public enum KeyType
     {
-        System.Action<InputAction.CallbackContext> actionA = _ => action();
-        testAction.performed += actionA;
+        B,
+        Y,
+        DownArrow,
+        DropBox,
+        CreateBoxR,
+        CreateBoxL,
+        CreateBoxUp,
+        CreateBoxDown,
+        Retry,
+        Delete,
+    }
+    private void OnDestroy()
+    {
+        bButtonAction.Disable();
+        yButtonAction.Disable();
+        downArrowAction.Disable();
+        dropBoxAction.Disable();
+        createBoxRAction.Disable();
+        createBoxLAction.Disable();
+        createBoxUpAction.Disable();
+        createBoxDownAction.Disable();
+        retryAction.Disable();
+        deleteAction.Disable();
     }
 }
