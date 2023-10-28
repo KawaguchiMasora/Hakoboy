@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Move : MonoBehaviour
 {
     public float movementSpeed = 5f;
     public float jumpForce = 10f;
     private bool isGrounded = true;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
+
+    // デリゲートの宣言
+    public delegate void MyDelegate();
+
 
     void Start()
     {
@@ -18,6 +23,11 @@ public class Move : MonoBehaviour
             // Rigidbody2Dがアタッチされていない場合、警告を表示
             Debug.LogWarning("Rigidbody2Dコンポーネントがアタッチされていません。");
         }
+
+
+        // InputManagerのSetActionにデリゲートを渡す
+        InputManager.instnace.SetAction(() => Jump());
+
     }
 
     void Update()
@@ -30,7 +40,7 @@ public class Move : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            Jump();
+            Jump();//Addフォース
         }
     }
 
@@ -50,5 +60,4 @@ public class Move : MonoBehaviour
             isGrounded = true;
         }
     }
-
 }
