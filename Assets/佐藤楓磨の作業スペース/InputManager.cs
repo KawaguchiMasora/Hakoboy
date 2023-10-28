@@ -65,7 +65,6 @@ public class InputManager : MonoBehaviour
             deleteAction = input.actions["DeleteBox"];
             #endregion
         }
-        SetButtonAction(() => print("test"), KeyType.B);
     }
 
     void Update()
