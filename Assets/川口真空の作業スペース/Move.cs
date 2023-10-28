@@ -8,11 +8,7 @@ public class Move : MonoBehaviour
     public float movementSpeed = 5f;
     public float jumpForce = 10f;
     private bool isGrounded = true;
-    private Rigidbody2D rb;
-
-    // デリゲートの宣言
-    public delegate void MyDelegate();
-
+    public Rigidbody2D rb;
 
     void Start()
     {
@@ -20,27 +16,29 @@ public class Move : MonoBehaviour
 
         if (rb == null)
         {
+            rb.sharedMaterial.friction = 100.0f;
+
             // Rigidbody2Dがアタッチされていない場合、警告を表示
             Debug.LogWarning("Rigidbody2Dコンポーネントがアタッチされていません。");
         }
 
-
-        // InputManagerのSetActionにデリゲートを渡す
-        InputManager.instnace.SetAction(() => Jump());
-
+    
     }
 
     void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+      //  float horizontalInput = Input.GetAxis("Horizontal");
+      //  float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(horizontalInput, 0, verticalInput) * movementSpeed * Time.deltaTime;
-        transform.Translate(movement);
+       // Vector2 movementForce = new Vector2(horizontalInput, verticalInput) * movementSpeed;
+       // rb.AddForce(movementForce);
+
+        float moveInput = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(moveInput * movementSpeed, rb.velocity.y);
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            Jump();//Addフォース
+            Jump(); 
         }
     }
 

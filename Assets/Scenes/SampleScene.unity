@@ -275,7 +275,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26926
+  m_Name: pb_Mesh26622
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -814,8 +814,8 @@ GameObject:
   - component: {fileID: 1934264394}
   - component: {fileID: 1934264395}
   - component: {fileID: 1934264396}
-  - component: {fileID: 1934264398}
   - component: {fileID: 1934264397}
+  - component: {fileID: 1934264398}
   m_Layer: 0
   m_Name: "\u30CF\u30B3\u30DC\u30FC\u30A4Test"
   m_TagString: Untagged
@@ -902,8 +902,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658801c370681b54aa480ea40ca1ead4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 1
   jumpForce: 10
+  rb: {fileID: 0}
 --- !u!61 &1934264397
 BoxCollider2D:
   m_ObjectHideFlags: 0
