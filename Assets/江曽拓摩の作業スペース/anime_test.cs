@@ -17,6 +17,7 @@ public class anime_test : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        animator.SetFloat("jump", 0);
     }
 
     void FixedUpdate()
@@ -44,8 +45,8 @@ public class anime_test : MonoBehaviour
         {
             if (isJumping && !isJumping_running)
             {
-                Debug.Log("ƒWƒƒƒ“ƒv");
-                StartCoroutine("JunpMove");
+                //StartCoroutine("JunpMove");
+                animator.SetFloat("jump", 1);
                 isJumping = false;
             }
         }
@@ -56,21 +57,35 @@ public class anime_test : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Ground")) isJumping = true;
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            isJumping = true;
+            //animator.SetFloat("jump", );
+        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
         {
             isJumping_running = false;
+            animator.SetFloat("jump", 3);
         }
+    }
+    void Anime_Zero()
+    {
+        animator.SetFloat("jump", 0);
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Ground")) isJumping = false;
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            animator.SetFloat("jump", 2);
+            isJumping = false;
+        }
     }
     IEnumerator JunpMove()
     {
+        animator.SetFloat("jump", 2);
         rb.velocity = Vector3.zero;
         isJumping_running = true;
         float ju_fo = jumpforce;
