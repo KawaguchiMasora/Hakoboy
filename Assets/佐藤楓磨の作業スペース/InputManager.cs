@@ -108,6 +108,14 @@ public class InputManager : MonoBehaviour
 
         }
     }
+    public bool IsYButtonUp()
+    {
+        return yButtonAction.WasReleasedThisFrame();
+    }
+    public bool IsYButtonDown()
+    {
+        return yButtonAction.WasPressedThisFrame();
+    }
     public enum KeyType
     {
         B,
