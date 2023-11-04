@@ -4,29 +4,25 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 10f;
-    private bool isGrounded;
-    private Rigidbody2D rb;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    public GameObject objectPrefab; // 生成するPrefabをInspectorから設定
+    public Transform player; // PlayerオブジェクトをInspectorから設定
 
     void Update()
-    {
-        // 地面に接触しているかどうかを判定
-        isGrounded = Physics2D.OverlapCircle(transform.position, 0.2f, LayerMask.GetMask("Ground"));
-
-        // ジャンプ
-        if (isGrounded && Input.GetButtonDown("Jump"))
+    { 
+        if (Input.GetKeyDown(KeyCode.O))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            GenerateObject();
         }
-
-        // 横移動
-        float moveInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
     }
+
+    void GenerateObject()
+    {
+        // 指定したPrefabを生成
+        GameObject newObject = Instantiate(objectPrefab, transform.position, Quaternion.identity);
+
+        // 生成したオブジェクトをPlayerオブジェクトの子オブジェクトに設定
+        newObject.transform.SetParent(player);
+    }
+    
+
 }

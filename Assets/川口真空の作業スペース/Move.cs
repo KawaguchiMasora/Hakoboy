@@ -36,12 +36,7 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        //  float horizontalInput = Input.GetAxis("Horizontal");
-        //  float verticalInput = Input.GetAxis("Vertical");
-
-        // Vector2 movementForce = new Vector2(horizontalInput, verticalInput) * movementSpeed;
-        // rb.AddForce(movementForce);
-
+       
         //ê∂ê¨íÜÇÕìÆÇØÇ»Ç≠Ç∑ÇÈ
         isControlPressed = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
         isBPressed = Input.GetKey(KeyCode.L);
@@ -84,6 +79,8 @@ public class Move : MonoBehaviour
 
     void BoxGeneration()
     {
+        //É{Éc 
+
         //î†ê∂ê¨èàóù
         Debug.Log("î†ê∂ê¨íÜ");
         if (Input.GetKey(KeyCode.UpArrow))
@@ -97,7 +94,7 @@ public class Move : MonoBehaviour
             Vector3 playerPosition = transform.position;
 
             // xé≤ï˚å¸Ç…10è„Ç…Ç∏ÇÁÇ∑
-            playerPosition.x += 10;
+            playerPosition.x += 2;
 
             // éwíËÇµÇΩPrefabÇê∂ê¨
             Instantiate(boxPrefab, playerPosition, Quaternion.identity);
