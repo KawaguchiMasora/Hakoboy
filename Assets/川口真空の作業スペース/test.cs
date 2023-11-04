@@ -5,19 +5,14 @@ using UnityEngine;
 public class test : MonoBehaviour
 {
 
-<<<<<<< HEAD
-=======
 
->>>>>>> f059bb2f20e6c47ea2db7efaff757a7b44fbed11
+
     public GameObject objectPrefab; // 生成するPrefabをInspectorから設定
     public Transform player; // PlayerオブジェクトをInspectorから設定
 
     public string deathAnimationName = "Death";
     public Animator animatorDeath;
-<<<<<<< HEAD
-=======
 
->>>>>>> f059bb2f20e6c47ea2db7efaff757a7b44fbed11
 
     void Start()
     {
@@ -43,18 +38,9 @@ public class test : MonoBehaviour
         newObject.transform.SetParent(player);
         newObject.transform.localPosition = Vector3.zero; // もし必要なら相対位置を調整
 
-<<<<<<< HEAD
+
     }
 
-
-
-       
-  
-
-=======
-       
-    }
->>>>>>> f059bb2f20e6c47ea2db7efaff757a7b44fbed11
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Death"))
@@ -63,7 +49,7 @@ public class test : MonoBehaviour
             {
 
                 animatorDeath.Play(deathAnimationName);
-<<<<<<< HEAD
+
                 Debug.Log("Death");
             }
 
@@ -72,15 +58,9 @@ public class test : MonoBehaviour
 
 
                 animatorDeath.Play(deathAnimationName);
-=======
->>>>>>> f059bb2f20e6c47ea2db7efaff757a7b44fbed11
+
             }
            
            // Destroy(gameObject);
         }
-    }
-
-<<<<<<< HEAD
-=======
-}
->>>>>>> f059bb2f20e6c47ea2db7efaff757a7b44fbed11
+ }
