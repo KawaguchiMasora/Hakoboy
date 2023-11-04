@@ -59,7 +59,7 @@ public class Beam : SetNearGrid, IGimmikFunction
             _renderer.SetPositions(pos);
             return;
         }
-        pos[1] = new Vector3(0, ray.point.y - transform.position.y, 0);
+        pos[1] = new Vector3( transform.position.y - ray.point.y, transform.position.x - ray.point.x, 0);
         _renderer.SetPositions(pos);
         if (!ray.collider.gameObject.CompareTag("Player")) return;
         MoveMent(ray.collider.gameObject);
