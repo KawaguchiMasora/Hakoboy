@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,12 @@ public class InputManager : MonoBehaviour
     private InputAction yButtonAction;
     private InputAction downArrowAction;
     private InputAction dropBoxAction;
+
+    internal void SetAction(Action p)
+    {
+        throw new NotImplementedException();
+    }
+
     private InputAction createBoxRAction;
     private InputAction createBoxLAction;
     private InputAction createBoxUpAction;
@@ -107,6 +114,14 @@ public class InputManager : MonoBehaviour
                 break;
 
         }
+    }
+    public bool IsYButtonUp()
+    {
+        return yButtonAction.WasReleasedThisFrame();
+    }
+    public bool IsYButtonDown()
+    {
+        return yButtonAction.WasPressedThisFrame();
     }
     public enum KeyType
     {

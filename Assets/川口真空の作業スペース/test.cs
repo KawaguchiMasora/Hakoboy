@@ -4,29 +4,63 @@ using UnityEngine;
 
 public class test : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 10f;
-    private bool isGrounded;
-    private Rigidbody2D rb;
+
+    public GameObject objectPrefab; // 生成するPrefabをInspectorから設定
+    public Transform player; // PlayerオブジェクトをInspectorから設定
+
+    public string deathAnimationName = "Death";
+    public Animator animatorDeath;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        animatorDeath = GetComponent<Animator>();
     }
+
 
     void Update()
     {
-        // 地面に接触しているかどうかを判定
-        isGrounded = Physics2D.OverlapCircle(transform.position, 0.2f, LayerMask.GetMask("Ground"));
-
-        // ジャンプ
-        if (isGrounded && Input.GetButtonDown("Jump"))
+        // スペースキーが押されたらオブジェクト生成
+        if (Input.GetKeyDown(KeyCode.O))
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            GenerateObject();
         }
-
-        // 横移動
-        float moveInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
     }
-}
+
+    void GenerateObject()
+    {
+        // 指定したPrefabを生成
+        GameObject newObject = Instantiate(objectPrefab, transform.position, Quaternion.identity);
+
+        // 生成したオブジェクトのTransformをプレイヤーのTransformに設定
+        newObject.transform.SetParent(player);
+        newObject.transform.localPosition = Vector3.zero; // もし必要なら相対位置を調整
+
+    }
+
+
+
+       
+  
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Death"))
+        {
+            if (animatorDeath != null)
+            {
+
+                animatorDeath.Play(deathAnimationName);
+                Debug.Log("Death");
+            }
+
+            // 当たったオブジェクト（Deathオブジェクト）を削除
+           // Destroy(collision.gameObject);
+
+
+                animatorDeath.Play(deathAnimationName);
+            }
+           
+           // Destroy(gameObject);
+        }
+    }
+
