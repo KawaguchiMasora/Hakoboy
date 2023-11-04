@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<<< HEAD:Assets/川口真空の作業スペース/Prefab/Death.anim.meta
 guid: 91293a4025cb7584f83a531207ebc407
 ========
@@ -7,6 +8,19 @@ guid: 91d7a60862c97084ba08febb5b06c776
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000
+=======
+<<<<<<<< HEAD:Assets/佐藤楓磨の作業スペース/Sprits/画像1_1.asset.meta
+guid: aff15bb652fcaa4448d12728ad8d8e97
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+========
+guid: 91293a4025cb7584f83a531207ebc407
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+>>>>>>>> f059bb2f20e6c47ea2db7efaff757a7b44fbed11:Assets/川口真空の作業スペース/Prefab/Death.anim.meta
+>>>>>>> f059bb2f20e6c47ea2db7efaff757a7b44fbed11
   userData: 
   assetBundleName: 
   assetBundleVariant: 

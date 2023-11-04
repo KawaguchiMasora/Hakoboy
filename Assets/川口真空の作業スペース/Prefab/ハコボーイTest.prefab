@@ -12,9 +12,12 @@ GameObject:
   - component: {fileID: 1904493515908944741}
   - component: {fileID: 1904493515908944738}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 8465211584653623067}
 =======
 >>>>>>> 5b9d920b700774ba62acef752a5b1b69400e8924
+=======
+>>>>>>> f059bb2f20e6c47ea2db7efaff757a7b44fbed11
   - component: {fileID: 1904493515908944739}
   - component: {fileID: 1904493515908944736}
   - component: {fileID: 1904493515908944737}
@@ -110,6 +113,7 @@ MonoBehaviour:
   boxPrefab: {fileID: 6880171658271548217, guid: fbcd887bac942b546960e09ca7daae50, type: 3}
   maxBoxCount: 5
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &8465211584653623067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +133,8 @@ MonoBehaviour:
     m_Bits: 0
 =======
 >>>>>>> 5b9d920b700774ba62acef752a5b1b69400e8924
+=======
+>>>>>>> f059bb2f20e6c47ea2db7efaff757a7b44fbed11
 --- !u!61 &1904493515908944739
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -191,7 +197,10 @@ MonoBehaviour:
   objectPrefab: {fileID: 6880171658271548217, guid: fbcd887bac942b546960e09ca7daae50, type: 3}
   player: {fileID: 1904493515908944740}
 <<<<<<< HEAD
+<<<<<<< HEAD
   deathAnimationName: Death
   animatorDeath: {fileID: 0}
 =======
 >>>>>>> 5b9d920b700774ba62acef752a5b1b69400e8924
+=======
+>>>>>>> f059bb2f20e6c47ea2db7efaff757a7b44fbed11

@@ -1,15 +1,21 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<<< HEAD:Assets/川口真空の作業スペース/Prefab/ハコボーイTest.controller.meta
+=======
+>>>>>>> f059bb2f20e6c47ea2db7efaff757a7b44fbed11
 guid: a5a1f96fcbb3425458a78bd2d8a8aee0
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 9100000
+<<<<<<< HEAD
 ========
 guid: 91293a4025cb7584f83a531207ebc407
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000
 >>>>>>>> 5b9d920b700774ba62acef752a5b1b69400e8924:Assets/川口真空の作業スペース/Prefab/Death.anim.meta
+=======
+>>>>>>> f059bb2f20e6c47ea2db7efaff757a7b44fbed11
   userData: 
   assetBundleName: 
   assetBundleVariant: 
