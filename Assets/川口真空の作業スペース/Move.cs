@@ -16,7 +16,7 @@ public class Move : MonoBehaviour
     public GameObject boxPrefab;
     public int maxBoxCount = 5; // 生成できる上限数
 
-    private int generatedBoxCount = 0; // 生成されたボックスの数を追跡
+  
 
     void Start()
     {
@@ -36,7 +36,12 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-       
+        //  float horizontalInput = Input.GetAxis("Horizontal");
+        //  float verticalInput = Input.GetAxis("Vertical");
+
+        // Vector2 movementForce = new Vector2(horizontalInput, verticalInput) * movementSpeed;
+        // rb.AddForce(movementForce);
+
         //生成中は動けなくする
         isControlPressed = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
         isBPressed = Input.GetKey(KeyCode.L);
@@ -54,10 +59,7 @@ public class Move : MonoBehaviour
             Jump();
         }
 
-        if(isControlPressed && isBPressed)
-        {
-            BoxGeneration();
-        }
+    
     }
 
     void Jump()
@@ -77,38 +79,6 @@ public class Move : MonoBehaviour
         }
     }
 
-    void BoxGeneration()
-    {
-        //ボツ 
-
-        //箱生成処理
-        Debug.Log("箱生成中");
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            Debug.Log("↑");         
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            Debug.Log("→");
-            // プレイヤーの位置を取得
-            Vector3 playerPosition = transform.position;
-
-            // x軸方向に10上にずらす
-            playerPosition.x += 2;
-
-            // 指定したPrefabを生成
-            Instantiate(boxPrefab, playerPosition, Quaternion.identity);
-
-            // 生成回数をカウントアップ
-            generatedBoxCount++;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            Debug.Log("←");
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            Debug.Log("↓");
-        }
-    }
+    
+    
 }
