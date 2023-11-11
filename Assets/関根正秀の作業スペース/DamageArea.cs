@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class DamageArea : MonoBehaviour
 {
-    //public GameObject Player;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
