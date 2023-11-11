@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class Testjeap : MonoBehaviour
 {
-    private Rigidbody2D rb; // Rigidbody2D を使用
-    private int upForce;
-    private float distance;
+    public Rigidbody2D rb;
+    public int upForce = 300;
+    public float distance = 1.0f;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>(); // Rigidbody2D を取得
-        upForce = 300;
-        distance = 1.0f;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
-        Vector3 rayPosition = transform.position + new Vector3(0.0f, 0.0f, 0.0f);
-        RaycastHit2D hit = Physics2D.Raycast(rayPosition, Vector2.down, distance); // Physics2D.Raycast を使用
+        Vector2 rayPosition = transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(rayPosition, Vector2.down, distance);
         Debug.DrawRay(rayPosition, Vector2.down * distance, Color.red);
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (hit.collider != null) // Collider2D をチェック
-                rb.AddForce(new Vector2(0, upForce)); // 2D ベクトルを使用
+            if (hit.collider != null && hit.collider.CompareTag("Ground"))
+            {
+                rb.AddForce(new Vector2(0, upForce));
+            }
         }
     }
 }

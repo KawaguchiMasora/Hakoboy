@@ -16,7 +16,7 @@ public class Move : MonoBehaviour
     public GameObject boxPrefab;
     public int maxBoxCount = 5; // ê∂ê¨Ç≈Ç´ÇÈè„å¿êî
 
-  
+
 
     void Start()
     {
@@ -59,7 +59,7 @@ public class Move : MonoBehaviour
             Jump();
         }
 
-    
+
     }
 
     void Jump()
@@ -78,7 +78,4 @@ public class Move : MonoBehaviour
             isGrounded = true;
         }
     }
-
-    
-    
 }
