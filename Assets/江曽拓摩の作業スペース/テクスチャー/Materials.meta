@@ -1,9 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<<< HEAD:Assets/佐藤楓磨の作業スペース/Sprits.meta
 guid: d1d971cf7c61d7540b2a5222fc2c5e87
 ========
 guid: 035065c0956b6064a9711366e0127cfc
 >>>>>>>> eso:Assets/江曽拓摩の作業スペース/テクスチャー/Materials.meta
+=======
+guid: 035065c0956b6064a9711366e0127cfc
+>>>>>>> 980b8bdaf228c9094ad137cc7417981c33ae8ef8
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
