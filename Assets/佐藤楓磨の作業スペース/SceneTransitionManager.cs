@@ -11,7 +11,7 @@ public class SceneTransitionManager : MonoBehaviour
         get
         {
             if (_ins == null)
-                _ins = FindObjectOfType<SceneManager>();
+                _ins = FindObjectOfType<SceneTransitionManager>();
             return _ins;
         }
     }
