@@ -25,6 +25,7 @@ public class SetNearGrid : MonoBehaviour
         var _trans = transform.position;
         _trans.z = 0;
         var pos = tilemap.GetCellCenterWorld(tilemap.WorldToCell(_trans));
+        pos += new Vector3(offset.x, offset.y);
         transform.position = pos;
     }
 }

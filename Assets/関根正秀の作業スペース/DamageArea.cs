@@ -11,8 +11,8 @@ public class DamageArea : MonoBehaviour
         //Playerが落下した際に自動リスタート
         if (collision.gameObject.tag == "Player")
         {
-            Scene activeScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(activeScene.name);
+            Scene activeScene = SceneTransitionManager.GetActiveScene();
+            SceneTransitionManager.LoadScene(activeScene.name);
         }
     }
 

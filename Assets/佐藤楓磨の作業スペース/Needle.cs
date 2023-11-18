@@ -14,7 +14,7 @@ public class Needle : SetNearGrid, IGimmikFunction
     }
     public void MoveMent(GameObject obj)
     {
-        if(obj.TryGetComponent<Move>(out var a))
+        if (obj.TryGetComponent<Move>(out var a))
         {
             //プレイヤーに対する処理
         }
@@ -31,8 +31,12 @@ public class Needle : SetNearGrid, IGimmikFunction
 /// </summary>
 public interface IGimmikFunction
 {
-    //有効か無効か
+    /// <summary>
+    ///有効か無効か
+    /// </summary>
     public bool IsEnable();
-    //ギミックが働いた時の動き
+    /// <summary>
+    ///ギミックが働いた時の動き
+    /// </summary>
     public void MoveMent(GameObject obj);
 }
