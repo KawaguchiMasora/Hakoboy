@@ -11,10 +11,8 @@ GameObject:
   - component: {fileID: 8650160891636846122}
   - component: {fileID: 8650160891636846123}
   - component: {fileID: 8650160891636846124}
-  - component: {fileID: 8650160891636846129}
   - component: {fileID: 8650160891636846125}
   - component: {fileID: 8650160891636846126}
-  - component: {fileID: 8650160891636846127}
   - component: {fileID: 8650160891636846128}
   m_Layer: 0
   m_Name: "\u30CF\u30B3\u30DC\u30FC\u30A4Test 1"
@@ -97,7 +95,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8650160891636846121}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 658801c370681b54aa480ea40ca1ead4, type: 3}
   m_Name: 
@@ -107,18 +105,6 @@ MonoBehaviour:
   rb: {fileID: 8650160891636846126}
   boxPrefab: {fileID: 6880171658271548217, guid: fbcd887bac942b546960e09ca7daae50, type: 3}
   maxBoxCount: 5
---- !u!114 &8650160891636846129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8650160891636846121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81ed4a38f0a213e499d292272993f355, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &8650160891636846125
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,22 +152,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8650160891636846127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8650160891636846121}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad53081b9f75ac54e86e9f31f9343470, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 1904493515908944743, guid: d85b58273d79b504e8328b4b53eaedb5, type: 3}
-  player: {fileID: 8650160891636846122}
-  deathAnimationName: Death
-  animatorDeath: {fileID: 0}
 --- !u!95 &8650160891636846128
 Animator:
   serializedVersion: 4
