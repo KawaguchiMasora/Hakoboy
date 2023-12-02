@@ -14,6 +14,7 @@ public class StageData : ScriptableObject
     public int stageNameHeight = 20;
     public string stageInfo;
     public int stageInfoHeight = 20;
+    public bool isClear = false;
 }
 #if UNITY_EDITOR
 [CustomEditor(typeof(StageData))]
@@ -35,6 +36,8 @@ public class StageDataEditor : Editor
         EditorGUILayout.EndHorizontal();
 
         element.stageInfo = EditorGUILayout.TextArea(element.stageInfo, GUILayout.Height(element.stageInfoHeight));
+
+        element.isClear = EditorGUILayout.Toggle("ステージをクリアしたか",element.isClear);
     }
 }
 #endif
