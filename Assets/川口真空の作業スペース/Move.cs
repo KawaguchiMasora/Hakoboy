@@ -13,53 +13,39 @@ public class Move : MonoBehaviour
     private bool isControlPressed = false;
     private bool isBPressed = false;
 
-    public GameObject boxPrefab;
-    public int maxBoxCount = 5; // 生成できる上限数
+    public Vector3 respawnPoint; // リスポーン地点
+    public Vector3 newRespawnPoint;
 
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        respawnPoint = transform.position;
 
         if (rb == null)
         {
-            rb.sharedMaterial.friction = 100.0f;
-
             // Rigidbody2Dがアタッチされていない場合、警告を表示
             Debug.LogWarning("Rigidbody2Dコンポーネントがアタッチされていません。");
         }
         // InputManagerのSetActionにデリゲートを渡す
-        //まだ何も渡す設定していない
-
+        // まだ何も渡す設定していない
     }
 
     void Update()
     {
-        //  float horizontalInput = Input.GetAxis("Horizontal");
-        //  float verticalInput = Input.GetAxis("Vertical");
-
-        // Vector2 movementForce = new Vector2(horizontalInput, verticalInput) * movementSpeed;
-        // rb.AddForce(movementForce);
-
-        //生成中は動けなくする
-        isControlPressed = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
-        isBPressed = Input.GetKey(KeyCode.L);
-
-        //箱生成中じゃなければ動いてよし
+        // 箱生成中じゃなければ動いてよし
         if (!isControlPressed && !isBPressed)
         {
             float moveInput = Input.GetAxis("Horizontal");
             rb.velocity = new Vector2(moveInput * movementSpeed, rb.velocity.y);
         }
 
-        //箱生成中もしくは空中じゃなければジャンプしてよし
+        // 箱生成中もしくは空中じゃなければジャンプしてよし
         if (!isControlPressed && !isBPressed && Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             Jump();
         }
-
-
     }
 
     void Jump()
@@ -76,6 +62,34 @@ public class Move : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+        }
+
+        if (collision.gameObject.CompareTag("Death"))
+        {
+            Debug.Log("死んだ");
+            Respawn(); // プレイヤーをリスポーンさせる
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("RespawnPos"))
+        {
+            // 新しいリスポーン地点を設定
+            newRespawnPoint = other.transform.position;
+            Debug.Log("新しいリスポーン地点を設定しました: " + newRespawnPoint);
+        }
+    }
+    void Respawn()
+    {
+        // 衝突したボックスコライダーで新しいリスポーン地点が設定されていれば、それを使用してプレイヤーをリスポーンさせる
+        if (newRespawnPoint != Vector3.zero)
+        {
+            transform.position = newRespawnPoint;
+        }
+        else
+        {
+            // 新しいリスポーン地点が設定されていない場合は、通常のリスポーン地点にプレイヤーを移動させる
+            transform.position = respawnPoint;
         }
     }
 }
