@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 150133122}
   - component: {fileID: 150133121}
   - component: {fileID: 150133125}
+  - component: {fileID: 150133126}
   m_Layer: 0
   m_Name: testplayer
   m_TagString: Player
@@ -252,8 +253,8 @@ MonoBehaviour:
   movementSpeed: 5
   jumpForce: 10
   rb: {fileID: 150133121}
-  boxPrefab: {fileID: 0}
-  maxBoxCount: 5
+  respawnPoint: {x: 0, y: 0, z: 0}
+  newRespawnPoint: {x: 0, y: 0, z: 0}
 --- !u!212 &150133123
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -347,6 +348,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.76, y: 3.05}
   m_EdgeRadius: 0
+--- !u!114 &150133126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150133120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718373767dd180d48a1a037ee3ecfd94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  box: {fileID: 8593088294551515282, guid: 59c016a46614aff4e8641cfd3e820a6f, type: 3}
+  throwPower: 5
 --- !u!1 &183433880
 GameObject:
   m_ObjectHideFlags: 0
