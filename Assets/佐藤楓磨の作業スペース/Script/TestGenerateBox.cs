@@ -10,7 +10,6 @@ public class TestGenerateBox : MonoBehaviour
     [SerializeField] private GameObject box;
     [SerializeField] private float throwPower;
     private Vector3 centerPos;
-    private Vector3 spriteSize;
     private int boxCountLimit = 5;
     private int currentBoxCount;
     private List<GameObject> instnacedBoxs = new List<GameObject>();
@@ -20,7 +19,6 @@ public class TestGenerateBox : MonoBehaviour
     private const float MOVE_TIME = 0.3f;
     void Start()
     {
-        spriteSize = GetComponent<SpriteRenderer>().bounds.size;
         #region ŠeƒL[‚ÌÝ’è
         InputManager.instnace.SetButtonAction(() => GenerateBox(angle.down), InputManager.KeyType.CreateBoxDown);
         InputManager.instnace.SetButtonAction(() => GenerateBox(angle.up), InputManager.KeyType.CreateBoxUp);
@@ -65,20 +63,19 @@ public class TestGenerateBox : MonoBehaviour
         switch (angle)
         {
             case angle.up:
-                instnaceBox = Instantiate(box, centerPos + new Vector3(0, spriteSize.y, 0), Quaternion.identity);
+                instnaceBox = Instantiate(box, centerPos + new Vector3(0, box.transform.localScale.y, 0), Quaternion.identity);
                 break;
             case angle.down:
-                instnaceBox = Instantiate(box, centerPos + new Vector3(0, -spriteSize.y, 0), Quaternion.identity);
+                instnaceBox = Instantiate(box, centerPos + new Vector3(0, -box.transform.localScale.y, 0), Quaternion.identity);
                 break;
             case angle.right:
-                instnaceBox = Instantiate(box, centerPos + new Vector3(spriteSize.x, 0, 0), Quaternion.identity);
+                instnaceBox = Instantiate(box, centerPos + new Vector3(box.transform.localScale.x, 0, 0), Quaternion.identity);
                 break;
             case angle.left:
-                instnaceBox = Instantiate(box, centerPos + new Vector3(-spriteSize.x, 0, 0), Quaternion.identity);
+                instnaceBox = Instantiate(box, centerPos + new Vector3(-box.transform.localScale.x, 0, 0), Quaternion.identity);
                 break;
         }
         centerPos = instnaceBox.transform.position;
-        instnaceBox.transform.localScale = spriteSize;
         currentBoxCount++;
         instnacedBoxs.Add(instnaceBox);
         instnaceBox.transform.SetParent(transform);

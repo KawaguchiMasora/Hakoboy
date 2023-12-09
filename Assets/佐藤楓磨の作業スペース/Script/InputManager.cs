@@ -37,6 +37,9 @@ public class InputManager : MonoBehaviour
     private InputAction retryAction;
     private InputAction deleteAction;
     private bool isConnectionGamePad = true;
+
+    private System.Action<InputAction.CallbackContext> b_action, y_action,darrow_action,drop_action,
+        crR_action,crL_action,crU_action,crD_action,retry_action,delete_action;
     void Awake()
     {
         input = GetComponent<PlayerInput>();
@@ -78,41 +81,98 @@ public class InputManager : MonoBehaviour
     {
 
     }
-    public void SetButtonAction(System.Action action, KeyType type)
+    public System.Action<InputAction.CallbackContext> SetButtonAction(System.Action action, KeyType type)
     {
         switch (type)
         {
             case KeyType.B:
-                bButtonAction.performed += _ => action();
+                b_action += _ => action();
+                bButtonAction.performed += b_action;
                 break;
             case KeyType.Y:
-                yButtonAction.performed += _ => action();
+                y_action += _ => action();
+                yButtonAction.performed += y_action;
                 break;
             case KeyType.DownArrow:
-                downArrowAction.performed += _ => action();
+                darrow_action += _ => action();
+                downArrowAction.performed += darrow_action;
                 break;
             case KeyType.DropBox:
-                dropBoxAction.performed += _ => action();
+                drop_action += _ => action();
+                dropBoxAction.performed += drop_action;
                 break;
             case KeyType.CreateBoxR:
-                createBoxRAction.performed += _ => action();
+                crR_action += _ => action();
+                createBoxRAction.performed += crR_action;
                 break;
             case KeyType.CreateBoxL:
-                createBoxLAction.performed += _ => action();
+                crL_action += _ => action();
+                createBoxLAction.performed += crL_action;
                 break;
             case KeyType.CreateBoxUp:
-                createBoxUpAction.performed += _ => action();
+                crU_action += _ => action();
+                createBoxUpAction.performed += crU_action;
                 break;
             case KeyType.CreateBoxDown:
-                createBoxDownAction.performed += _ => action();
+                crD_action += _ => action();
+                createBoxDownAction.performed += crD_action;
                 break;
             case KeyType.Retry:
-                retryAction.performed += _ => action();
+                retry_action += _ => action();
+                retryAction.performed += retry_action;
                 break;
             case KeyType.Delete:
-                deleteAction.performed += _ => action();
+                delete_action += _ => action();
+                deleteAction.performed += delete_action;
                 break;
 
+        }
+        return _ => action();
+    }
+    public void DeleteAction(System.Action<InputAction.CallbackContext> action, KeyType type)
+    {
+        switch (type)
+        {
+            case KeyType.B:
+                bButtonAction.performed -= b_action;
+                b_action -= action;
+                break;
+            case KeyType.Y:
+                yButtonAction.performed -= y_action;
+                y_action -= action;
+                break;
+            case KeyType.DownArrow:
+                downArrowAction.performed -= darrow_action;
+                darrow_action -= action;
+                break;
+            case KeyType.DropBox:
+                dropBoxAction.performed -= drop_action;
+                drop_action -= action;
+                break;
+            case KeyType.CreateBoxR:
+                createBoxRAction.performed -= crR_action;
+                crR_action -= action;
+                break;
+            case KeyType.CreateBoxL:
+                createBoxLAction.performed -= crL_action;
+                crL_action -= action;
+                break;
+            case KeyType.CreateBoxUp:
+                createBoxUpAction.performed -= crU_action;
+                crU_action -= action;
+                break;
+            case KeyType.CreateBoxDown:
+                createBoxDownAction.performed -= crD_action;
+                crD_action -= action;
+                break;
+            case KeyType.Retry:
+                retryAction.performed -= retry_action;
+                retry_action -= action;
+                break;
+            case KeyType.Delete:
+                deleteAction.performed -= delete_action;
+                delete_action -= action;
+                break;
         }
     }
     public bool IsYButtonUp()
