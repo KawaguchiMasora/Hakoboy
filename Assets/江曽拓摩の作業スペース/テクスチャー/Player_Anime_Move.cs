@@ -6,12 +6,20 @@ public class Player_Anime_Move : MonoBehaviour
 {
     public Animator mAnimator;
     public SpriteRenderer sprite;
-    public float moveSpeed;
-    void Start()
-    {
-        
-    }
+    public Rigidbody2D rbody2D;
 
+    public float moveSpeed;
+    public float jumpForce;
+    public bool isGround;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isGround == true)
+        {
+            this.rbody2D.AddForce(transform.up * jumpForce);
+            mAnimator.SetBool("jump", true);
+        }
+    }
     void FixedUpdate()
     {
         Vector3 vec = transform.position;
@@ -25,7 +33,19 @@ public class Player_Anime_Move : MonoBehaviour
             this.transform.position += Vector3.left * moveSpeed;
             sprite.flipX = true;
         }
-        if (vec == transform.position) mAnimator.SetBool("walk", false);
+        if (vec == transform.position && isGround == true) mAnimator.SetBool("walk", false);
         else mAnimator.SetBool("walk", true);
+    }
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag("Ground"))
+        {
+            isGround = true;
+            mAnimator.SetBool("jump", false);
+        }
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Ground")) isGround = false;
     }
 }
