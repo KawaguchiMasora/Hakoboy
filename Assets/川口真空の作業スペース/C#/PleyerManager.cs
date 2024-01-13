@@ -1,21 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class Move : MonoBehaviour
+public class PleyerManager : MonoBehaviour
 {
     public float movementSpeed = 5f;
     public float jumpForce = 10f;
     private bool isGrounded = true;
     public Rigidbody2D rb;
 
+    private bool isControlPressed = false;
+    private bool isBPressed = false;
+
     public Vector3 respawnPoint; // リスポーン地点
     public Vector3 newRespawnPoint;
 
-    [SerializeField] private BoxCollider2D boxCollider;
 
-    public Animator mAnimator;
 
     void Start()
     {
@@ -33,38 +33,18 @@ public class Move : MonoBehaviour
 
     void Update()
     {
+        // 箱生成中じゃなければ動いてよし
+        if (!isControlPressed && !isBPressed)
+        {
             float moveInput = Input.GetAxis("Horizontal");
             rb.velocity = new Vector2(moveInput * movementSpeed, rb.velocity.y);
-            Vector3 vec = transform.position;
-
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A)) 
-        {
-            //mAnimator.SetBool("walk", false);
-        }
-        else
-        {
-          // mAnimator.SetBool("walk", true);
         }
 
         // 箱生成中もしくは空中じゃなければジャンプしてよし
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (!isControlPressed && !isBPressed && Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             Jump();
-           // mAnimator.SetBool("jump", true);
         }
-        else
-        {
-            //mAnimator.SetBool("jump", false);
-        }
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-        {
-            boxCollider.enabled = false;
-        }
-        else
-        {
-            boxCollider.enabled = true;
-        }
-
     }
 
     void Jump()
@@ -73,7 +53,6 @@ public class Move : MonoBehaviour
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
-           
         }
     }
 
@@ -111,10 +90,5 @@ public class Move : MonoBehaviour
             // 新しいリスポーン地点が設定されていない場合は、通常のリスポーン地点にプレイヤーを移動させる
             transform.position = respawnPoint;
         }
-    }
-
-    void Boxproduce()
-    {
-
     }
 }

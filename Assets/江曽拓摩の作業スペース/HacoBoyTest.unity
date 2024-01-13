@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 459910607}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,7 +245,11 @@ GameObject:
   - component: {fileID: 1078618707}
   - component: {fileID: 1078618708}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: clothes
+=======
+  m_Name: Triangle
+>>>>>>> 646d478faeced72765e2bd41282b358dd44f896c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,7 +334,6 @@ GameObject:
   - component: {fileID: 1645281779}
   - component: {fileID: 1645281778}
   - component: {fileID: 1645281781}
-  - component: {fileID: 1645281784}
   - component: {fileID: 1645281782}
   - component: {fileID: 1645281783}
   m_Layer: 0
@@ -470,10 +473,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mAnimator: {fileID: 1645281783}
   sprite: {fileID: 1645281779}
-  rbody2D: {fileID: 1645281778}
   moveSpeed: 0.05
+<<<<<<< HEAD
   jumpForce: 400
   isGround: 0
+=======
+>>>>>>> 646d478faeced72765e2bd41282b358dd44f896c
 --- !u!95 &1645281783
 Animator:
   serializedVersion: 4
@@ -494,32 +499,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &1645281784
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645281777}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -5.64}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 11.4}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.63, y: 1.05}
-  m_EdgeRadius: 0
 --- !u!1 &1650517544
 GameObject:
   m_ObjectHideFlags: 0
