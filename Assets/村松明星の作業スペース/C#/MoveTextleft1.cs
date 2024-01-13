@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveTextleft1 : MonoBehaviour
 {
-    public float moveSpeed = 500f;
+    public float moveSpeed = 800f;
 
     void Update()
     {

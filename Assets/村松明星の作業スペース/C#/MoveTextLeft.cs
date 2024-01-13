@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MoveTextLeft : MonoBehaviour
 {
-    public float moveSpeed = 500f;
+    public float moveSpeed = 800f;
 
     void Update()
     {
