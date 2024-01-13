@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorManager : MonoBehaviour
+public class ExplanationArea : MonoBehaviour
 {
-    private Animator anim;
+    public GameObject Explanation;
+
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
+        Explanation.SetActive(false);
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //プレイヤーが来た時に一度だけドアを開ける
         if (collision.gameObject.tag == "Player")
         {
-            anim.SetTrigger("open");
+            Explanation.SetActive(true);
         }
     }
+
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }
