@@ -18286,6 +18286,7 @@ MonoBehaviour:
   movementSpeed: 7
   jumpForce: 12
   rb: {fileID: 1934264398}
+  targetObject: {fileID: 0}
   respawnPoint: {x: 0, y: 0, z: 0}
   newRespawnPoint: {x: 0, y: 0, z: 0}
   boxCollider: {fileID: 1706444544}
