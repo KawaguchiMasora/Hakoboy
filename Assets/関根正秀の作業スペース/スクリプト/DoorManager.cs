@@ -5,7 +5,6 @@ using UnityEngine;
 public class DoorManager : MonoBehaviour
 {
     private Animator anim;
-    private float timer = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,20 +13,15 @@ public class DoorManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //プレイヤーが来た時に一度だけドアを開ける
         if (collision.gameObject.tag == "Player")
         {
-            anim.SetBool("open", true);
-            timer += Time.deltaTime;
-            if (timer >= 2)
-            {
-                anim.SetBool("open", false);
-                timer = 0;
-            }
+            anim.SetTrigger("open");
         }
     }
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
