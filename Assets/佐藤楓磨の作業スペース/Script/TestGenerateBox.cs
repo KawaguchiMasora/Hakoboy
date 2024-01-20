@@ -17,6 +17,7 @@ public class TestGenerateBox : MonoBehaviour
     private float startPlayerSpeed;
     private Move _move;
     private const float MOVE_TIME = 0.3f;
+    private readonly Vector3 INSTANCE_BOX_OFFSET = new Vector3(0.2f, -1f, 0);
     void Start()
     {
         #region äeÉLÅ[ÇÃê›íË
@@ -40,7 +41,7 @@ public class TestGenerateBox : MonoBehaviour
         {
             if (instnacedBoxs.Count == 0)
             {
-                centerPos = transform.position;
+                centerPos = transform.position + INSTANCE_BOX_OFFSET;
             }
             GetComponent<Move>().movementSpeed = 0;
         }
@@ -75,6 +76,7 @@ public class TestGenerateBox : MonoBehaviour
                 instnaceBox = Instantiate(box, centerPos + new Vector3(-box.transform.localScale.x, 0, 0), Quaternion.identity);
                 break;
         }
+
         centerPos = instnaceBox.transform.position;
         currentBoxCount++;
         instnacedBoxs.Add(instnaceBox);
