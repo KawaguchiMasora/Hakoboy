@@ -4,39 +4,31 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    [SerializeField] private BoxCollider2D boxCollider;
-    public GameObject targetObject;
-    public string targetTag = "Player";
+
+    [SerializeField] private BoxCollider2D goalCollider;
     [SerializeField] Rigidbody2D rb;
+    public string targetTag = "Player";
+    public GameObject targetObject;
+    bool goalArea = false;
 
-    bool Goalarea = false;
-
-    void Start()
+    void OnTriggerEnter2D(Collider2D other)
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Goalarea = true && Input.GetKeyDown(KeyCode.UpArrow))
+        if (other.CompareTag(targetTag) && other.IsTouching(goalCollider))
         {
-            Debug.Log("ゴールしました");
-            Move otherScript = targetObject.GetComponent<Move>();
-            otherScript.enabled = false;
-            rb.velocity = Vector2.zero;
+            goalArea = true;
+            Debug.Log("ボックスコライダーの中に入りました");
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void Update()
     {
-        Goalarea = true;
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag(targetTag))
+        if (goalArea && Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Goalarea = false;
+            Debug.Log("ゴールしました");
+            rb.velocity = Vector2.zero;
+
+            Move otherScript = targetObject.GetComponent<Move>();
+            otherScript.enabled = false;
         }
     }
 }

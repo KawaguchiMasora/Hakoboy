@@ -9,11 +9,9 @@ public class Move : MonoBehaviour
     public float jumpForce = 10f;
     private bool isGrounded = true;
     public Rigidbody2D rb;
-    public GameObject targetObject;
 
     public Vector3 respawnPoint; // リスポーン地点
     public Vector3 newRespawnPoint;
-
 
     [SerializeField] private BoxCollider2D boxCollider;
 
@@ -38,6 +36,15 @@ public class Move : MonoBehaviour
             float moveInput = Input.GetAxis("Horizontal");
             rb.velocity = new Vector2(moveInput * movementSpeed, rb.velocity.y);
             Vector3 vec = transform.position;
+
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A)) 
+        {
+            //mAnimator.SetBool("walk", false);
+        }
+        else
+        {
+          // mAnimator.SetBool("walk", true);
+        }
 
         // 箱生成中もしくは空中じゃなければジャンプしてよし
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -90,13 +97,6 @@ public class Move : MonoBehaviour
             // 新しいリスポーン地点を設定
             newRespawnPoint = other.transform.position;
             Debug.Log("新しいリスポーン地点を設定しました: " + newRespawnPoint);
-        }
-        if (other.gameObject.CompareTag("Goal")&&Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            //扉前で上ボタン押したらゴール
-            Debug.Log("ゴールしました");
-            Move otherScript = targetObject.GetComponent<Move>();
-            otherScript.enabled = false;
         }
     }
     void Respawn()
