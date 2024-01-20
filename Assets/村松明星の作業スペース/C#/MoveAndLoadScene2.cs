@@ -8,10 +8,10 @@ public class MoveAndLoadScene2 : MonoBehaviour
 {
     public GameObject movingObject;
     public Text movingText;
-    public float objectMoveSpeed = 78f;
-    public float objectMoveDuration = 2f;
-    public float textMoveSpeed = 650f;
-    public float textMoveDuration = 3f;
+    public float objectMoveSpeed = 120f;
+    public float objectMoveDuration = 1.2f;
+    public float textMoveSpeed = 1200f;
+    public float textMoveDuration = 1.65f;
     public string targetSceneName;
 
     private bool objectMoving = true;

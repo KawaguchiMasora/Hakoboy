@@ -351,10 +351,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingObject: {fileID: 1011494080}
   movingText: {fileID: 263182439}
-  objectMoveSpeed: 78
-  objectMoveDuration: 2
-  textMoveSpeed: 650
-  textMoveDuration: 3
+  objectMoveSpeed: 120
+  objectMoveDuration: 1.2
+  textMoveSpeed: 1200
+  textMoveDuration: 1.65
   targetSceneName: 
 --- !u!1 &377321738
 GameObject:

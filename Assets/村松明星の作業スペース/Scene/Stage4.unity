@@ -169,10 +169,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingObject: {fileID: 246164400}
   movingText: {fileID: 1449331957}
-  objectMoveSpeed: 78
-  objectMoveDuration: 2
-  textMoveSpeed: 650
-  textMoveDuration: 3
+  objectMoveSpeed: 120
+  objectMoveDuration: 1.2
+  textMoveSpeed: 1200
+  textMoveDuration: 1.65
   targetSceneName: 
 --- !u!1 &246164400
 GameObject:
@@ -272,7 +272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246164400}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 674, y: 139, z: -93}
+  m_LocalPosition: {x: 685, y: 148, z: -93}
   m_LocalScale: {x: 15.568739, y: 15.568739, z: 15.568739}
   m_ConstrainProportionsScale: 0
   m_Children: []
