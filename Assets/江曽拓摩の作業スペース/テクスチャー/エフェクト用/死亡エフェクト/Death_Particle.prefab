@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4482726475577751130}
   - component: {fileID: 4482726475577751131}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Death_Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,8 +168,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 7
+      minMaxState: 3
+      scalar: 12
       minScalar: 5
       maxCurve:
         serializedVersion: 2
