@@ -7,6 +7,7 @@ public class CameraManager : MonoBehaviour
     public GameObject player;
     public GameObject Lookout;
     public float cameraZ;
+    public float caneraY;
     private Collider2D LookCollider;
 
     public bool Look = true;
@@ -23,7 +24,7 @@ public class CameraManager : MonoBehaviour
         {
             //ZŽ²‚ðŒÅ’è‚µ‚ÄX‚ÆYŽ²‚Ì‚Ý’Ç”ö‚·‚é
             Vector3 playerPos = this.player.transform.position;
-            transform.position = new Vector3(playerPos.x, playerPos.y + 2, cameraZ);
+            transform.position = new Vector3(playerPos.x, caneraY, cameraZ);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
