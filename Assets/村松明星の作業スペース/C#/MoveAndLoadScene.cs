@@ -53,6 +53,6 @@ public class MoveAndLoadScene : MonoBehaviour
     void LoadTargetScene()
     {
         // 指定されたシーンをロード
-        
+        SceneManager.LoadScene("stage2");
     }
 }
