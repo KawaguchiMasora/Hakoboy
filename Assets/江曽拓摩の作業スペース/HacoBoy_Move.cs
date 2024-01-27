@@ -62,11 +62,12 @@ public class HacoBoy_Move : MonoBehaviour
             {
                 if (Mathf.Round(hit.point.y) == Mathf.Round(gameObject.transform.position.y - 2.3f))
                 {
-                    Debug.Log("’n–Ê‚É‚¢‚Ü‚·");
-                    if (!isGrounded && jumpAfter) mAnimator.SetBool("islanding", true);
-                    else isGrounded = false;
-                    isGrounded = true;
-                    jumpAfter = false;
+                    if (!isGrounded && jumpAfter)
+                    {
+                        mAnimator.SetBool("islanding", true);
+                        isGrounded = false;
+                        jumpAfter = false;
+                    }
                 }
                 else isGrounded = false;
             }

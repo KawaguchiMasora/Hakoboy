@@ -17,7 +17,9 @@ public class TestGenerateBox : MonoBehaviour
     private float startPlayerSpeed;
     private HacoBoy_Move _move;
     private const float MOVE_TIME = 0.3f;
+    private const float RAY_RADIUS = 0.5f;
     private readonly Vector3 INSTANCE_BOX_OFFSET = new Vector3(0.2f, -1f, 0);
+    private const string GROUND_TAG_NAME = "Ground";
     void Start()
     {
         #region äeÉLÅ[ÇÃê›íË
@@ -33,7 +35,10 @@ public class TestGenerateBox : MonoBehaviour
        _move = GetComponent<HacoBoy_Move>();
         startPlayerSpeed = _move.movementSpeed;
     }
-
+    private void OnEnable()
+    {
+        instnacedBoxs = new List<GameObject>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -64,15 +69,27 @@ public class TestGenerateBox : MonoBehaviour
         switch (angle)
         {
             case angle.up:
+                var upRay = Physics2D.CircleCast((Vector2)centerPos + new Vector2(0, box.transform.localScale.y), RAY_RADIUS, Vector2.zero);
+                if (upRay.collider != null)
+                    return;
                 instnaceBox = Instantiate(box, centerPos + new Vector3(0, box.transform.localScale.y, 0), Quaternion.identity);
                 break;
             case angle.down:
+                var downRay = Physics2D.CircleCast((Vector2)centerPos + new Vector2(0, -box.transform.localScale.y), RAY_RADIUS, Vector2.zero);
+                if (downRay.collider != null)
+                    return;
                 instnaceBox = Instantiate(box, centerPos + new Vector3(0, -box.transform.localScale.y, 0), Quaternion.identity);
                 break;
             case angle.right:
+                var rightRay = Physics2D.CircleCast((Vector2)centerPos + new Vector2(box.transform.localScale.x, 0), RAY_RADIUS, Vector2.zero);
+                if (rightRay.collider != null)
+                    return;
                 instnaceBox = Instantiate(box, centerPos + new Vector3(box.transform.localScale.x, 0, 0), Quaternion.identity);
                 break;
             case angle.left:
+                var leftRay = Physics2D.CircleCast((Vector2)centerPos + new Vector2(-box.transform.localScale.x,0), RAY_RADIUS, Vector2.zero);
+                if (leftRay.collider != null)
+                    return;
                 instnaceBox = Instantiate(box, centerPos + new Vector3(-box.transform.localScale.x, 0, 0), Quaternion.identity);
                 break;
         }
@@ -86,6 +103,7 @@ public class TestGenerateBox : MonoBehaviour
     {
         if (instnacedBoxs.Count == 0) return;
         var parent = new GameObject("Parent");
+        parent.tag = GROUND_TAG_NAME;
         var rb = parent.AddComponent<Rigidbody2D>();
         rb.freezeRotation = true;
         for (int i = 0; i < instnacedBoxs.Count; i++)
@@ -100,6 +118,7 @@ public class TestGenerateBox : MonoBehaviour
     {
         if (instnacedBoxs.Count == 0) return;
         var parent = new GameObject("Parent");
+        parent.tag = GROUND_TAG_NAME;
         var rb = parent.AddComponent<Rigidbody2D>();
         rb.freezeRotation = true;
         for (int i = 0; i < instnacedBoxs.Count; i++)
@@ -123,6 +142,7 @@ public class TestGenerateBox : MonoBehaviour
         if (transform.childCount == 0) yield break;
         currentBoxCount = 0;
         var parent = new GameObject("Parent");
+        parent.tag = GROUND_TAG_NAME;
         for (int i = 0; i < instnacedBoxs.Count; i++)
         {
             instnacedBoxs[i].transform.SetParent(parent.transform);
