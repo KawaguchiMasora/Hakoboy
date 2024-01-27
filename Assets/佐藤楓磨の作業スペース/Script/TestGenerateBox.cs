@@ -15,7 +15,7 @@ public class TestGenerateBox : MonoBehaviour
     private List<GameObject> instnacedBoxs = new List<GameObject>();
     private List<GameObject> allparent = new List<GameObject>();
     private float startPlayerSpeed;
-    private Move _move;
+    private HacoBoy_Move _move;
     private const float MOVE_TIME = 0.3f;
     private readonly Vector3 INSTANCE_BOX_OFFSET = new Vector3(0.2f, -1f, 0);
     void Start()
@@ -30,7 +30,7 @@ public class TestGenerateBox : MonoBehaviour
         InputManager.instnace.SetButtonAction(() => DropBox(), InputManager.KeyType.DownArrow);
         InputManager.instnace.SetButtonAction(() => DeleteBox(), InputManager.KeyType.Delete);
         #endregion
-        _move = GetComponent<Move>();
+       _move = GetComponent<HacoBoy_Move>();
         startPlayerSpeed = _move.movementSpeed;
     }
 
@@ -43,11 +43,11 @@ public class TestGenerateBox : MonoBehaviour
             {
                 centerPos = transform.position + INSTANCE_BOX_OFFSET;
             }
-            GetComponent<Move>().movementSpeed = 0;
+            GetComponent<HacoBoy_Move>().movementSpeed = 0;
         }
         if (InputManager.instnace.IsYButtonUp())
         {
-            GetComponent<Move>().movementSpeed = startPlayerSpeed;
+            GetComponent<HacoBoy_Move>().movementSpeed = startPlayerSpeed;
         }
     }
     private enum angle
