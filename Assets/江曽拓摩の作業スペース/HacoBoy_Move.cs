@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+//[RequireComponent(typeof(Rigidbody2D))]
 public class HacoBoy_Move : MonoBehaviour
 {
     public float movementSpeed = 5f;
@@ -22,8 +22,9 @@ public class HacoBoy_Move : MonoBehaviour
     public Animator mAnimator;
     public SpriteRenderer sr;
 
-    void Start()
+    void Awake()
     {
+        Debug.Log("Awake");
         rb = GetComponent<Rigidbody2D>();
         respawnPoint = transform.position;
         DontDestroyOnLoad(this.gameObject);
@@ -144,8 +145,8 @@ public class HacoBoy_Move : MonoBehaviour
             // 新しいリスポーン地点が設定されていない場合は、通常のリスポーン地点にプレイヤーを移動させる
             transform.position = respawnPoint;
         }
-        Scene activeScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(activeScene.name);
+        rb.simulated = true;
+        isdeath = false;
     }
     public void Death_Anime()
     {

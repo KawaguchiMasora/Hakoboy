@@ -1136,7 +1136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932497380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 123.98, y: 9.93, z: -10}
+  m_LocalPosition: {x: 0, y: 2.65, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14449,7 +14449,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!1 &1587454509
 GameObject:
   m_ObjectHideFlags: 0
@@ -18561,7 +18561,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026690571}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 123.98, y: 9.93, z: -10}
+  m_LocalPosition: {x: 0, y: 2.65, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18576,6 +18576,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1484656142744909344, guid: 528ea54d506e86746a5eb2c35cfb083a, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1484656142744909344, guid: 528ea54d506e86746a5eb2c35cfb083a, type: 3}
       propertyPath: jumpForce
       value: 12
@@ -18606,11 +18610,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5406471191899053295, guid: 528ea54d506e86746a5eb2c35cfb083a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 123.98
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5406471191899053295, guid: 528ea54d506e86746a5eb2c35cfb083a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5406471191899053295, guid: 528ea54d506e86746a5eb2c35cfb083a, type: 3}
       propertyPath: m_LocalPosition.z
