@@ -26,7 +26,7 @@ public class HacoBoy_Move : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         respawnPoint = transform.position;
-
+        DontDestroyOnLoad(this.gameObject);
         
         if (rb == null)
         {
